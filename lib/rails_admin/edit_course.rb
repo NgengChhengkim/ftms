@@ -27,6 +27,7 @@ module RailsAdmin
           proc do
             @supervisor = User.supervisor
             @subjects = Subject.all
+            @trainees = (User.free_trainees << object.users).flatten!.sort
             if request.post?
               course_params = params.require(:course).permit :name, :description
               if object.update_attributes course_params

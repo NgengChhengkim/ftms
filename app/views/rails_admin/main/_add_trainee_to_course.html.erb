@@ -10,7 +10,7 @@
     <%= form_for @object, url: add_trainee_to_course_path, method: :post do |f| %>
       <%= hidden_field_tag "course[user_ids][]", nil %>
       <% @trainees.each do |trainee| %>
-        <tr class="<%= "hidden" if @object.users.include?(trainee) %>" >
+        <tr>
           <td class="string_type">
             <%= trainee.name %>
           </td>

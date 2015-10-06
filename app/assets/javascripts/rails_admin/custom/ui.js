@@ -13,6 +13,7 @@ var tab_nav = function () {
 }
 
 $(document).on("ready", function() {
+  tab_nav();
   $(".alert").delay(3000).slideUp()
   var id = $("#course_subjects").data("id")
   var link = "/admin/course/" + id + "/order_subjects_in_course"

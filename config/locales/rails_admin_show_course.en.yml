@@ -33,7 +33,7 @@ en:
         title: "Add Trainees"
         breadcrumb: "Trainees"
         menu: "Add Trainees"
-        btn: "Add Trainees"
+        btn: "Save"
       show_trainee:
         title: "Show Trainee info"
       add_subjects_to_course:
@@ -48,10 +48,10 @@ en:
       overview: "Overview"
       members: "Members"
       subjects: "Subjects"
-      edit_basic_info: "Edit Basic Info"
-      edit_members: "Edit Members"
-      edit_subjects: "Edit Subjects"
-      edit_supervisors: "Edit Supervisors"
+      edit_basic_info: "Basic Info"
+      edit_members: "Members"
+      edit_subjects: "Subjects"
+      edit_supervisors: "Supervisors"
     course:
       basic_info: "Basic info"
       name: "Name"
