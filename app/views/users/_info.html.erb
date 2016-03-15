@@ -11,14 +11,9 @@
     <b><%= t "user.profile.email" %></b><%= @user.email %>
   </p>
   <div class="form-group">
-    <% if can? :edit, @user %>
-      <% if current_user.trainee? %>
-        <%= link_to t("user.action.edit"), edit_user_path(@user),
-          class: "btn btn-info btn-sm" %>
-      <% elsif current_user.admin? %>
-        <%= link_to t("user.action.edit"), edit_path(User, @user),
-          class: "btn btn-info btn-sm" %>
-      <% end %>
+    <% if can? :update, @user %>
+      <%= link_to t("user.action.edit"), edit_user_path(@user),
+        class: "btn btn-info btn-sm" %>
     <% end %>
   </div>
 </div>
