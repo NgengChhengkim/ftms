@@ -36,7 +36,11 @@ class Admin::CoursesController < ApplicationController
   end
 
   def show
-    @course_subjects = @course.course_subjects
+    @course_subject = @course.course_subjects
+    @user_courses = @course.user_courses
+    @trainers_user_courses = @user_courses.trainer_user_course
+    @trainees_user_courses = @user_courses.where.not(id: @trainers_user_courses)
+    @count_task = @course.course_subjects.joins(:tasks).count
   end
 
   def destroy

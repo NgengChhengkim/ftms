@@ -30,3 +30,11 @@ en:
       name: "Name"
       description: "Description"
       action: "Action"
+    labels:
+      about_course: "About Course"
+      description: "Discription"
+      subject: "Subject : "
+      task: "Task : "
+      members: "Members"
+      trainers: "Trainers : "
+      trainees: "Trainees : "

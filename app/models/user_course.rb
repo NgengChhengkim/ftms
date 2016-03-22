@@ -24,6 +24,7 @@ class UserCourse < ActiveRecord::Base
   has_many :user_subjects, dependent: :destroy
 
   scope :actived, ->{where active: true}
+  scope :trainer_user_course, ->{where(user_id: Role.find_by(name: "trainer").users)}
 
   private
   def create_user_subjects_when_assign_new_user

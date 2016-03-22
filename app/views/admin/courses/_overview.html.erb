@@ -1,0 +1,32 @@
+<h2><%= t "courses.tabs.overview" %></h2>
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading"><strong><%= t "courses.labels.about_course" %></strong></div>
+      <div class="panel-body">
+        <strong><%= t "subjects.start_date" %></strong>
+          <%= @course.start_date %></br>
+        <strong><%= t "subjects.end_date" %></strong>
+          <%= @course.end_date %></br>
+        <strong><%= t "courses.labels.description" %></strong>
+          <%= @course.description %></br>
+       <strong><%= t "courses.labels.subject" %></strong>
+          <%=  @course_subject.count %></br>
+        <strong><%= t "courses.labels.task" %></strong>
+          <%=  @count_task %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading"><strong><%= t "courses.labels.members" %></strong></div>
+      <div class="panel-body">
+        <strong><%= t "courses.labels.trainers" %></strong>
+        <%= render partial: "trainer", collection: @trainers_user_courses, as: :trainer %></br>
+        <strong><%= t "courses.labels.trainees" %></strong>
+        <%= render partial: "trainee", collection: @trainees_user_courses, as: :trainee %>
+      </div>
+    </div>
+  </div>
+</div>

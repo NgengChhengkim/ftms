@@ -19,3 +19,16 @@ ja:
     course_masters: "コースマスターズ"
     status:
         new: "新しい"
+    tabs:
+      overview: "概要"
+      subjects: "科目"
+      trainees: "研修生"
+      trainers: "トレーナー"
+    labels:
+      about_course: "コース"
+      description: "説明"
+      subject: "テーマ : "
+      task: "仕事 : "
+      members: "メンバー"
+      trainers: "トレーナー : "
+      trainees: "研修生 : "
