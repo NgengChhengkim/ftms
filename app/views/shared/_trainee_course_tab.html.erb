@@ -1,0 +1,32 @@
+<% if user_course.course.nil? %>
+  <div clas="title"><%= t "subjects.coming_soon" %></div>
+<% else %>
+  <div class="row" id="trainee-course">
+    <div class="col-md-12">
+      <div class="title">
+        <span class="name"><%= user_course.course.name %></span>
+        <span class="pull-right">
+          <% if user_course.course.init? %>
+            <label class="label label-primary status">
+              <%= t "courses.labels.status.new" %>
+            </label>
+          <% elsif user_course.course.progress? %>
+            <label class="label label-success status">
+              <%= t "courses.labels.status.progress" %>
+            </label>
+          <% elsif user_course.course.finish? %>
+            <label class="label label-danger status">
+              <%= t "courses.labels.status.finish" %>
+            </label>
+          <% end %>
+        </span>
+      </div>
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="<%= tab_active Settings.tabs.overview, active_tab %>">
+          <%= link_to t("courses.tabs.overview"), user_course_path(user_course) %></li>
+        <li role="presentation" class="<%= tab_active Settings.tabs.subjects, active_tab %>">
+          <%= link_to t("courses.tabs.subject"), course_subjects_path(user_course.course, user_course_id: user_course) %></li>
+      </ul>
+    </div>
+  </div>
+<% end %>

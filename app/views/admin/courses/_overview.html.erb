@@ -11,8 +11,6 @@
           <%= @course.description %></br>
        <strong><%= t "courses.labels.subject" %></strong>
           <%=  @course_subjects.count %></br>
-        <strong><%= t "courses.labels.task" %></strong>
-          <%=  @count_task %>
       </div>
     </div>
   </div>
@@ -23,9 +21,7 @@
       <div class="panel-body">
         <% @roles.each do |role| %>
           <strong><%= t "courses.labels.#{role.name}" %></strong>
-          <% @users.find_by_role(role).each do |user| %>
-            <%= link_to user.name, user %>,
-          <% end %></br>
+          <%= member_list @users.find_by_role(role) %></br>
         <% end %>
       </div>
     </div>

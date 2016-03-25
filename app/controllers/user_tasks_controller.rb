@@ -1,6 +1,7 @@
 class UserTasksController < ApplicationController
   load_and_authorize_resource
   before_action :load_user_subject_course, only: :update
+  before_action :user_course_params, only: [:edit, :update]
 
   def create
     if @user_task.save
@@ -29,5 +30,9 @@ class UserTasksController < ApplicationController
   def load_user_subject_course
     @user_subject = @user_task.user_subject
     @user_course = @user_task.user_subject.course
+  end
+
+  def user_course_params
+    @user_course = UserCourse.find params[:user_course_id]
   end
 end

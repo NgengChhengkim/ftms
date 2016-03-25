@@ -1,2 +1,5 @@
 <% provide :title, t("subjects.subject") %>
-<%= render "subject_list" %>
+
+<%= render "shared/trainee_course_tab", course: @course, active_tab: Settings.tabs.overview  %>
+<%= render "admin/courses/overview" %>
+

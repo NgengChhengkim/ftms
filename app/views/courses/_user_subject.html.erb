@@ -1,0 +1,13 @@
+<div class="user-subject">
+  <table class="table table-striped tbl-course">
+    <thead>
+      <tr>
+        <th><%= t "user_subjects.fields.name" %></th>
+        <th><%= t "user_subjects.fields.status" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: "courses/subject", collection: @user_subjects, as: :subject %>
+    </tbody>
+  </table>
+</div>

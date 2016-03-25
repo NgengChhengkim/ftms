@@ -18,7 +18,7 @@
   <td class="update">
     <% if current_user?(user_task.user) && user_task.subject_in_progress? &&
       user_task.status != Settings.tasks.statuses.closed %>
-      <%= link_to t("subjects.table.task_update"), edit_user_task_path(user_task, user_task_status: user_task.status) %>
+      <%= link_to t("subjects.table.task_update"), edit_user_task_path(user_task, user_course_id: @user_course) %>
     <% end %>
   </td>
   <%= form_for user_task.task, url: course_task_path(@course.id,user_task.

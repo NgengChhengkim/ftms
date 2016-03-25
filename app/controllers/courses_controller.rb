@@ -2,10 +2,6 @@ class CoursesController < ApplicationController
   load_and_authorize_resource
   before_action :load_course, only: :show
 
-  def show
-    @course_subjects = @course.course_subjects
-  end
-
   private
   def load_course
     if @user_course = current_user.user_courses.actived.last

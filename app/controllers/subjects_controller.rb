@@ -8,10 +8,12 @@ class SubjectsController < ApplicationController
   before_action :check_status_subject, only: :update
 
   def index
-    @user_subjects = UserSubject.load_user_subject(@user, @course)
+    @user_course = UserCourse.find params[:user_course_id]
+    @user_subjects = @user_course.user_subjects
   end
 
   def show
+    @user_course = UserCourse.find params[:user_course_id]
     @task_masters = @subject.task_masters
     @course_subject = CourseSubject.find_by course_id: @course.id,
       subject_id: @subject.id

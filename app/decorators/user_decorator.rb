@@ -2,7 +2,7 @@ class UserDecorator < Draper::Decorator
   delegate_all
 
   def user_course_last_actived
-    courses.last
+    user_courses.last
   end
 
   def permission_course_master

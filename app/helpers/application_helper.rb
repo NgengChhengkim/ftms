@@ -45,4 +45,8 @@ module ApplicationHelper
   def tab_active tab_name, current_tab
     current_tab == tab_name ? "active" : nil
   end
+
+  def member_list members
+    members.map {|member| link_to member.name, member}.join(", ").html_safe
+  end
 end

@@ -1,0 +1,10 @@
+<tr>
+  <td>
+    <% if subject.init? %>
+      <%= subject.course_subject.subject.name %>
+    <% else %>
+      <%= link_to subject.subject.name, course_subject_path(@course, subject.subject, user_course_id: @user_course) %>
+    <% end %>
+    </td>
+  <td><%= (subject.init?)? t("user_subject.status.new") : subject.status %></td>
+</tr>

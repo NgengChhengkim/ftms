@@ -1,4 +1,7 @@
 <div class="title"><%= @user_task.task.name %></div>
+
+<%= render "shared/trainee_course_tab", user_course: @user_course, active_tab: Settings.tabs.subjects  %>
+
 <%= form_for @user_task do |f| %>
   <div class="row">
     <%= render "shared/error_messages", object: @user_task %>
@@ -25,5 +28,5 @@
     </div>
   </div>
   <br>
-  <%= f.submit t("tasks.update"), class: "btn btn-primary" %>
+  <%= f.submit t("tasks.update"), user_course_id: user_course, class: "btn btn-primary" %>
 <% end %>

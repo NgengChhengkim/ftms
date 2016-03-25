@@ -19,6 +19,8 @@ en:
     course_masters: "Course Masters"
     start_date: "Start date"
     end_date: "End date"
+    name: "Name"
+    description: "Description"
     status:
       new: "New"
     tabs:
@@ -40,6 +42,10 @@ en:
       admin: "Admin"
       trainer: "Trainers : "
       trainee: "Trainees : "
+      status:
+        new: "New"
+        progress: "Progress"
+        finish: "Finish"
     users:
       name: "Name"
       email: "Email"

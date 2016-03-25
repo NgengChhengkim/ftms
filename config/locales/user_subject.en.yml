@@ -6,3 +6,5 @@ en:
       estimate_time: "Estimate time"
       spent_time: "Spent time"
       progress: "Progress"
+    status:
+      new: "New"
