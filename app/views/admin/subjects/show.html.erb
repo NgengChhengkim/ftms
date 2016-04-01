@@ -1,5 +1,21 @@
 <%= render "shared/course_tab", course: @course, active_tab: Settings.tabs.subjects  %>
 
-<div id="user-subject" class="user-lists">
-  <%= render "user_lists" %>
+<div id="user-subject" >
+  <div class="row">
+    <div class="col-md-10">
+      <div class="title"><%= @course_subject.subject_name %></div>
+      <div class="description"><%= @course_subject.subject_description %></div>
+      <div class="text-danger">
+        <%= "#{t "subjects.fields.during_time"}: #{@course_subject.subject.during_time} #{t "subjects.fields.days"}" %>
+      </div>
+
+      <div id="task">
+        <%= render "task" %>
+      </div>
+
+      <div class="user-lists">
+        <%= render "user_lists" %>
+      </div>
+    </div>
+  </div>
 </div>

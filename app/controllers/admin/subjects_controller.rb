@@ -11,6 +11,8 @@ class Admin::SubjectsController < ApplicationController
     @course = Course.find params[:course_id]
     @course_subject = CourseSubject.find_by course_id: @course.id, subject_id: @subject.id
     @user_subjects = @course_subject.user_subjects
+    @unassign_tasks = @course_subject.tasks.not_assigned_trainee
+    @user_subjects_not_finishs = @user_subjects.not_finish(@user_subjects.finish)
   end
 
   def create

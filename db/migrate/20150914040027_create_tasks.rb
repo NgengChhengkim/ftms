@@ -6,6 +6,8 @@ class CreateTasks < ActiveRecord::Migration
       t.text :description
       t.text :content
       t.integer :task_master_id
+      t.boolean :trainee_task
+
       t.references :assigned_trainee, references: :users
       t.references :course_subject, index: true, foreign_key: {on_delete: :cascade}
 

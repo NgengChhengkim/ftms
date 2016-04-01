@@ -4,6 +4,9 @@
     <%= form_for :task, url: course_tasks_path(@course.id,
       @course_subject.id), html: {method: :post}  do |f| %>
       <%= render "shared/error_messages", object: @subject %>
+
+      <%= f.hidden_field :trainee_task, value: current_user.is_trainee? %>
+
       <div class="col-md-3">
         <%= f.label :name, I18n.t("subjects.task.name") %>
         <%= f.text_field :name, class: "form-control", required: true %>

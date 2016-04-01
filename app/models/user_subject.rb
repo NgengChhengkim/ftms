@@ -18,6 +18,7 @@ class UserSubject < ActiveRecord::Base
 
   scope :load_user_subject, ->(user_id, course_id){where "user_id = ? AND course_id = ?", user_id, course_id}
   scope :load_users, ->status {where status: status}
+  scope :not_finish, -> user_subjects{where.not(id: user_subjects)}
   enum status: [:init, :progress, :finish]
 
   delegate :name, to: :user, prefix: true, allow_nil: true

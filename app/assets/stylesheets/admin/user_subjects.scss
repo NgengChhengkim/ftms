@@ -11,13 +11,18 @@
     .status-task {
       width: 10%;
     }
+
     .name {
-      width: 30%;
+      width: 20%;
     }
 
-    .estimate-time, .spent-time, .progress-value {
+    .estimate-time, , .progress-value, .assign_user {
       width: 20%;
       text-align: center;
+    }
+
+    .spent-time {
+      width: 10%;
     }
   }
 

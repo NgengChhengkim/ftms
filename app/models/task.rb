@@ -4,7 +4,7 @@ class Task < ActiveRecord::Base
   belongs_to :assigned_trainee, class_name: User.name
 
   ATTRIBUTES_PARAMS = [
-    :name, :description, :assigned_trainee_id, :course_subject_id
+    :name, :description, :assigned_trainee_id, :course_subject_id, :trainee_task
   ]
 
   scope :not_assigned_trainee, -> do

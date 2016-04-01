@@ -3,6 +3,14 @@
   <td class="name"><%= user_task.task.name %></td>
   <td class="estimate-time"><%= user_task.estimated_time %></td>
   <td class="spent-time"><%= user_task.spent_time %></td>
-  <td class="progress-value"><%= "#{user_task.progress} %" %></span>
-  </td>
+  <td class="progress-value"><%= "#{user_task.progress} %" %></td>
+  <%= form_for user_task.task, url: course_task_path(@course, user_task.task), html: {method: :put} do |f| %>
+    <td class="assign_user">
+      <% if user_task.nil_master? && !user_task.user_subject.finish? %>
+        <%= f.select :assigned_trainee_id, options_for_select(@user_subjects_not_finishs.collect{|subject| [subject.user.name, subject.user_id]}, user_task.user.id), {prompt: ""}, onchange: "this.form.submit()", class: "form-control" %>
+      <% else %>
+       <%= user_task.user_name %>
+      <% end %>
+    </td>
+  <% end %>
 </tr>

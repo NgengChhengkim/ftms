@@ -1,11 +1,4 @@
 <div class="row">
-  <div class="col-md-9">
-    <div class="title"><%= @course_subject.subject_name %></div>
-    <div class="description"><%= @course_subject.subject_description %></div>
-    <div class="text-danger">
-      <%= "#{t "subjects.fields.during_time"}: #{@course_subject.subject.during_time} #{t "subjects.fields.days"}" %>
-    </div>
-  </div>
   <div class="col-md-3 title">
     <% if @course.progress? %>
       <% unless @user_subjects.count == @user_subjects.finish.count %>

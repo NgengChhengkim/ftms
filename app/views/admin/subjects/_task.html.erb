@@ -1,0 +1,49 @@
+<div class="title"><%= t "subjects.create_new_task" %></div>
+<%= form_for :task, url: course_tasks_path(@course.id,
+  @course_subject.id), html: {method: :post}  do |f| %>
+  <%= render "shared/error_messages", object: @subject %>
+
+  <%= f.hidden_field :trainee_task, value: current_user.is_trainee? %>
+
+  <div class="col-md-3">
+    <%= f.label :name, I18n.t("subjects.task.name") %>
+    <%= f.text_field :name, class: "form-control", required: true %>
+  </div>
+  <div class="col-md-3">
+    <%= f.label :description, I18n.t("subjects.task.description") %>
+    <%= f.text_field :description, class: "form-control" %>
+  </div>
+  <div class="col-md-3">
+    <%= f.label :assigned_trainee_id, I18n.t("subjects.task.assignee") %>
+    <%= f.select :assigned_trainee_id, @user_subjects_not_finishs.collect{|user_subject| [user_subject.user_name, user_subject.user_id]}, {prompt: ""}, {class: "form-control"} %>
+  </div><br>
+  <%= f.hidden_field :course_subject_id, value: @course_subject.id %>
+  <div class="col-md-3">
+    <%= f.submit t("subjects.submit.create_task"), class: "btn btn-success"
+      %>
+  </div>
+<% end %>
+
+<hr />
+
+<div class="title"><%= t "subjects.task.had_not_assigned" %></div>
+<div id="tasks">
+  <table class="table table-striped tbl-task">
+    <thead>
+      <tr>
+        <th class="redmine_id"><%= t "subjects.table.task_redmine_id" %></th>
+        <th class="task_name"><%= t "subjects.table.task_name" %></th>
+        <th class="task_progress"><%= t "subjects.table.task_progress" %></th>
+        <th class="task_status"><%= t "subjects.table.task_status" %></th>
+        <th class="estimated_time"><%= t "subjects.table.task_estimated_time" %></th>
+        <th class="spent_time"><%= t "subjects.table.task_spent_time" %></th>
+        <th class="update"><%= t "subjects.table.task_update" %></th>
+        <th class="assign_user"><%= t "subjects.table.task_assign" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: "admin/subjects/unassign_task", collection: @unassign_tasks, as: :task %>
+    </tbody>
+  </table>
+</div>
+<hr />

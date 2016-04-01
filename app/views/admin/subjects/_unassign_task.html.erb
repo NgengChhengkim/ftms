@@ -1,0 +1,17 @@
+<tr>
+  <td class="redmine_id"></td>
+  <td class="task_name"><%= task.name %></td>
+  <td class="task_progress"></td>
+  <td class="task_status"></td>
+  <td class="estimated_time"></td>
+  <td class="spent_time"></td>
+  <td class="update"></td>
+  <td>
+    <%= form_for :task, url: course_task_path(@course.id, task.id),
+      html: {method: :put} do |f| %>
+      <%= f.select :assigned_trainee_id, @user_subjects_not_finishs.collect{|user_subject|
+        [user_subject.user_name, user_subject.user_id]}, {prompt: ""}, onchange:
+          "this.form.submit()", class: "select-assign form-control" %>
+    <% end %>
+  </td>
+</tr>

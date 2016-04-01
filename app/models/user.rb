@@ -45,6 +45,10 @@ class User < ActiveRecord::Base
     self.role.name == "admin"
   end
 
+  def is_trainee?
+    role.name == "trainee"
+  end
+
   private
   def password_required?
     new_record? ? super : false
@@ -52,9 +56,5 @@ class User < ActiveRecord::Base
 
   def create_user_profile
     create_profile user_id: id
-  end
-
-  def is_trainee?
-    role.name == "trainee"
   end
 end
