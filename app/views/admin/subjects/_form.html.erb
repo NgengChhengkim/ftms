@@ -9,7 +9,7 @@
             <span><%= t "subjects.fields.name" %>:</span>
           </div>
           <div class="col-md-9">
-            <%= f.text_field :name, class: "form-control", required: true,
+            <%= f.text_field :name, class: "form-control",
               placeholder: I18n.t("subjects.form.input_subject_name") %>
           </div>
         </div>
@@ -28,7 +28,7 @@
             <span><%= t "subjects.description" %>:</span>
           </div>
           <div class="col-md-9">
-            <%= f.text_area :description, class: "form-control", required: true,
+            <%= f.text_area :description, class: "form-control",
               placeholder: I18n.t("subjects.form.input_subject_description") %>
           </div>
         </div>
@@ -38,7 +38,7 @@
             <span><%= t "subjects.content" %></span>
           </div>
           <div class="col-md-9">
-            <%= f.cktext_area :content, class: "ckeditor form-control", required: true %>
+            <%= f.cktext_area :content, class: "ckeditor form-control" %>
           </div>
         </div>
         <br>
@@ -47,7 +47,7 @@
             <span><%= t "subjects.during_time" %>:</span>
           </div>
           <div class="col-md-9">
-            <%= f.text_field :during_time, class: "form-control", required: true,
+            <%= f.text_field :during_time, class: "form-control",
               placeholder: I18n.t("subjects.form.input_subject_during_time") %>
           </div>
         </div>

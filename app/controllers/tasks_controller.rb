@@ -8,6 +8,7 @@ class TasksController < ApplicationController
     @users = @task.user_tasks.eager_load :user
     @course = @task.course_subject.course
     @subject = @task.course_subject.subject
+    binding.pry
     @user_task = UserTask.find_by user_id: @assigned_trainee.id,
       task_id: @task.id
   end
