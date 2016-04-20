@@ -1,7 +1,12 @@
 class UserTasksController < ApplicationController
   load_and_authorize_resource
   before_action :load_user_subject_course, only: :update
-  before_action :load_course, only: :edit
+  before_action :load_course, only: [:show, :edit]
+
+  def show
+    @user_courses = @course.user_courses
+    @user_subject = @user_task.user_subject
+  end
 
   def create
     if @user_task.save

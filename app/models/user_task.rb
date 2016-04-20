@@ -15,6 +15,7 @@ class UserTask < ActiveRecord::Base
 
   delegate :id, :name, :image_url, :description, to: :task, prefix: true, allow_nil: true
   delegate :name, to: :user, prefix: true, allow_nil: true
+  delegate :description, :content, to: :task, prefix: true, allow_nil: true
 
   before_create :init_relation_user
   after_update :subject_progress

@@ -1,0 +1,45 @@
+<div id="user-task" class="row">
+  <div class="breadcrumb-paths">
+    <ul class="breadcrumb">
+      <li>
+        <%= link_to root_path do %>
+          <i class="glyphicon glyphicon-th-list"></i>
+          <%= t "layouts.paths" %>
+        <% end %>
+      </li>
+      <li><%= link_to t("layouts.all_courses"), courses_path %></li>
+      <li><%= link_to @course.name, course_path(@course) %></li>
+      <li>
+        <%= link_to @user_subject.subject_name, course_subject_path(@course, @user_subject.subject) %>
+      </li>
+      <li><%= @user_task.task_name %></li>
+    </ul>
+    <hr>
+  </div>
+  <div id="task-info">
+    <div class="col-md-8 info">
+      <div class="row">
+        <div class="col-md-3 badge"><%= user_image_course_subject_tag @user_task.task %></div>
+        <div class="col-md-9">
+          <h4 class="task-name"><%= @user_task.task_name %></h4>
+          <div class="description"><%= @user_task.task_description %></div>
+        </div>
+      </div>
+      <div class="row">
+        <hr>
+        <div class="col-md-12"><%= @user_task.task_content.html_safe %></div>
+      </div>
+    </div>
+
+    <div class="col-md-4 pull-right well">
+      <p><strong><%= t "tasks.progress" %></strong></p>
+      <div class="progress">
+        <div class="progress-bar progress-bar-success" role="progressbar"
+          aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+          style="width:<%= @user_task.progress %>%;">
+           <%= @user_task.progress %>%&nbsp;<%= t "tasks.complete" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

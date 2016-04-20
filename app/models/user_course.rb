@@ -18,6 +18,8 @@ class UserCourse < ActiveRecord::Base
   scope :course_finished, ->{joins(:course)
     .where("courses.status = ?", Course.statuses[:finish])}
 
+  delegate :id, :name, to: :user, prefix: true, allow_nil: true
+
   private
   def create_user_subjects_when_assign_new_user
     create_user_subjects [self], course.course_subjects, course_id

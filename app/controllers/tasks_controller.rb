@@ -3,15 +3,6 @@ class TasksController < ApplicationController
   load_and_authorize_resource :course_subject
   before_action :add_task_info, only: [:create]
 
-  def show
-    @assigned_trainee = @task.assigned_trainee
-    @users = @task.user_tasks.eager_load :user
-    @course = @task.course_subject.course
-    @subject = @task.course_subject.subject
-    @user_task = UserTask.find_by user_id: @assigned_trainee.id,
-      task_id: @task.id if @assigned_trainee
-  end
-
   def create
     if @task.save
       flash[:success] = flash_message "created"

@@ -1,4 +1,4 @@
-<% if user_subject.is_of_user?(current_user) || user_task.assigned_? %>
+<% if user_subject.is_of_user?(current_user) || user_task.assigned? %>
 
   <hr />
   <li class="list-item mbm pbm por" id="course-overview">
@@ -17,7 +17,7 @@
             <span class="bdrl pls tch"><%= "#{user_task.progress} %" %></span>
           </b>
           <%= link_to user_task.task_name,
-            course_subject_task_path(@user_subject.course_subject, user_task.task) %>
+            course_subject_user_task_path(@user_subject.course_subject, user_task) %>
           <% if current_user?(user_task.user) && user_task.subject_in_progress? &&
             user_task.status != Settings.tasks.statuses.closed %>
             <h4>

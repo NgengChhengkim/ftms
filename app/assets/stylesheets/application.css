@@ -41,6 +41,7 @@
  *= require user_courses
  *= require footer
  *= require subject
+ *= require user_tasks
  */
 
 @import "bootstrap-sprockets";
