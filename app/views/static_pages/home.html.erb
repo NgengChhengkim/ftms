@@ -61,3 +61,14 @@
     </div>
   </div>
 <% end %>
+
+
+<table id="course">
+  <tr>
+    <th>name</th>
+    <th>start date</th>
+    <th>end date</th>
+    <th>status</th>
+  </tr>
+  <%= render partial: "static_pages/course", collection: @courses %>
+</table>
