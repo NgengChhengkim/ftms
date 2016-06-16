@@ -1,0 +1,19 @@
+<div class="pull-right dropdown-menu" data-column="<%= column %>">
+  <div class="sort" data-type="asc">
+    <%= link_to "A - Z", "javascript:void(0)" %>
+  </div>
+  <div class="sort" data-sort="desc">
+    <%= link_to "Z - A", "javascript:void(0)" %>
+  </div>
+  <div class="filter-list">
+    <div class="divider"></div>
+    <input type="text" id="search" class="form-control" />
+    <%= link_to "Clear All", "javascript:void(0)", class: "clear-checkbox" %>
+    <div class="checkbox" id="checkbox-<%= type %>"></div>
+    <div class="divider"></div>
+    <div class="btn btn-default pull-right btn-close">Close</div>
+    <div class="clearfix"></div>
+  </div>
+
+</div>
+

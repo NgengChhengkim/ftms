@@ -13,3 +13,31 @@
     <%= render @users %>
   </table>
 </div>
+
+<table class="table table-striped" id="tbl-course" width="100%">
+  <thead>
+    <tr>
+      <th class="th-name">
+        name
+        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <i class="ic ic-filter"></i>
+        </a>
+        <%= render "static_pages/filter_dropdown", type: "name", column: 0 %>
+      </th>
+      <th class="th-email">
+        email
+        <i class="ic ic-filter dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
+        <%= render "static_pages/filter_dropdown", type: "email", column: 1 %>
+      </th>
+
+      <th class="th-role">
+        Role
+        <i class=" ic ic-filter dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
+        <%= render "static_pages/filter_dropdown", type: "role", column: 1 %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: "static_pages/course", collection: @users, as: :course %>
+  </tbody>
+</table>
