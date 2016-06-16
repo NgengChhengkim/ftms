@@ -43,6 +43,7 @@
  *= require reports
  *= require admin/reports
  *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+ *= require static_page
  */
 
 @import "bootstrap-sprockets";

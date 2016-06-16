@@ -62,13 +62,38 @@
   </div>
 <% end %>
 
+<table class="table table-striped" id="tbl-course" width="100%">
+  <thead>
+    <tr>
+      <th class="th-name dropdown-filter">
+        name
+        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <i class="ic ic-filter"></i>
+        </a>
+        <%= render "filter_dropdown", type: "name", column: 0 %>
+      </th>
+      <th class="th-email dropdown-filter">
+        email
+        <i class="ic ic-filter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
+        <%= render "filter_dropdown", type: "email", column: 1 %>
+      </th>
 
-<table id="course">
-  <tr>
-    <th>name</th>
-    <th>start date</th>
-    <th>end date</th>
-    <th>status</th>
-  </tr>
-  <%= render partial: "static_pages/course", collection: @courses %>
+      <th class="th-role dropdown-filter">
+        Role
+        <i class=" ic ic-filter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></i>
+        <%= render "filter_dropdown", type: "role", column: 1 %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: "static_pages/course", collection: @courses %>
+  </tbody>
 </table>
+
+<input type="checkbox" name="Chenkim" class="ck" value="Chenkim">Chenkim<br>
+<input type="checkbox" name="Ha Linh" class="ck" value="Ha Linh">Ha Linh
+
+<input type="checkbox" name="admin" class="cb" value="admin">Admin<br>
+<input type="checkbox" name="trainee" class="cb" value="trainee">trainee
+
+<button class="sk">OK</button>

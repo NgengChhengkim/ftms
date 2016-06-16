@@ -9,7 +9,7 @@ class StaticPagesController < ApplicationController
     @user_progress_total = UserProgress.includes(:profiles)
       .map{|user_progress| user_progress.profiles.size}
 
-    @courses = Course.all
+    @courses = User.all
   end
 
   def help
