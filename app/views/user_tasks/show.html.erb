@@ -38,13 +38,6 @@
               <ul class="dropdown-menu dropdown-menu-right"
                 aria-labelledby="dLabel">
                 <li>
-                  <%= link_to "#" do %>
-                    <i class="fa fa-history" aria-hidden="true"></i>
-                    <%= t "user_tasks.history" %>
-                  <% end %>
-                </li>
-                <li class="divider"></li>
-                <li>
                   <%= link_to edit_course_subject_task_path(@course_subject,
                     @user_task.task) do %>
                     <i class="fa fa-pencil" aria-hidden="true"></i>

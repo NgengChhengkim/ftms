@@ -1,35 +1,40 @@
 <%= form_for @role, url: admin_role_allocate_permissions_path, method: :patch do |f| %>
   <%= render "shared/error_messages", object: @role %>
   <div class="title"><%= t "roles.layouts.allocate_permission" %></div>
-  <h3><%= @role.name %></h3>
   <div class="row">
-    <div class="col-md-6">
-      <table class="table table-striped">
-        <tbody>
-          <tr>
-            <td>
-              <%= f.submit :submit, class: "btn btn-primary" %>
-            </td>
-            <td class="pull-right">
-              <%= check_box_tag "select-permission-all", "select-all", false %>
-            </td>
-          </tr>
-          <%= f.fields_for :permissions do |builder| %>
-            <%= builder.hidden_field :id %>
-            <%= builder.hidden_field :model_class %>
-            <%= builder.hidden_field :action %>
-            <tr>
-              <td>
-                <div class="col-md-8"><%= builder.object.model_class %></div>
-                <div><%= builder.object.action %></div>
-              </td>
-              <td class="pull-right">
-                <%= builder.check_box :_destroy, {checked: builder.object.id.present?}, false, true %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+    <div class="col-md-1 title"><%= @role.name %></div>
+    <div class="col-md-1 col-md-offset-8"><%= f.submit :submit,
+      class: "btn btn-primary"%></div>
   </div>
+
+  <table class="table table-striped">
+    <tr>
+      <th></th>
+      <% Settings.roles.actions.each do |action| %>
+        <th><%= action %></th>
+      <% end %>
+      <th>
+        <%= check_box_tag "select-permission-all", "select-all", false %>
+        <label for="select-permission-all"><%= t "roles.select_all" %></label>
+      </th>
+    </tr>
+    <% $model_classes.each do |model_class| %>
+      <tr>
+        <td><%= model_class %></td>
+
+        <% Settings.roles.actions.each do |action| %>
+          <%= f.fields_for :permissions, @role.permissions.build do |builder| %>
+            <%= builder.hidden_field :id, value: @role.decorate.permission(action,
+              model_class) %>
+            <%= builder.hidden_field :model_class, value: model_class.name %>
+            <%= builder.hidden_field :action, value: action %>
+            <td>
+              <%= builder.check_box :_destroy, {checked: @role.decorate.permission(action,
+                model_class).present?}, false, true %>
+            </td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
 <% end %>

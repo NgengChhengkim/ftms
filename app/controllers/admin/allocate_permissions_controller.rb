@@ -2,14 +2,6 @@ class Admin::AllocatePermissionsController < ApplicationController
   load_and_authorize_resource :role
 
   def edit
-    $model_classes.each do |model_class|
-      Settings.roles.actions.each do |action|
-        unless @role.permissions.find_by action: action, model_class: model_class
-          @role.permissions.new model_class: model_class, action: action
-        end
-      end
-    end
-
     add_breadcrumb_path "roles"
     add_breadcrumb @role.name
     add_breadcrumb_role_allocate_permissions
